@@ -59,3 +59,84 @@ console.log(badOrGoodMovie(5));
 console.log(badOrGoodMovie(7));
 console.log(badOrGoodMovie(9.2));
 console.log(badOrGoodMovie(2));
+
+// 6.
+// Check if a string is empty
+
+function isEmptyString(some_string) {
+    //isEmptyString("") -> True
+    //isEmptryString("The Godfather") -> False
+    if (some_string == "") {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(isEmptyString(""));
+console.log(isEmptyString("The Godfather"));
+
+// 7. 
+// Find the minimum number in an array
+
+function findMin(numbers) {
+    // findMin([5,2,9,8,7,2])
+    // findMin([5,8,9,8,7,2])
+    let minimum = numbers[0];
+    for (let i=0; i < numbers.length; i++){
+        if (numbers[i] < minimum) {
+            minimum = numbers[i]
+        }
+    }
+    return minimum
+}
+
+console.log(findMin([5,2,9,8,7,2]));
+console.log(findMin([5,8,9,8,7,10]));
+
+// 8.
+// Find the maximum number in an array
+
+function findMax(arr) {
+    
+    let maximum = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > maximum) {
+            maximum = arr[i]
+        }
+    }
+    return maximum
+}
+
+console.log(findMax([2,9,6,10,4,5]))
+console.log(findMax([2,13,15,2,7,8,9,10]))
+
+//9. 
+// Sort an array of numbers greatest to least
+
+function sortHighestNums(arr) {
+    // sortHighestNums([5,8,2,9,3,10])
+
+    //finds the max
+    for (let j = 0; j < arr.length -1; j++) {
+
+        let max_num = arr[j];
+        let max_location = j;
+
+        for (let i = j; i < arr.length; i++) {
+            if (arr[i] > max_num) {
+                max_num = arr[i]
+                max_location = i
+            }
+        }
+        // swap the first and the last
+        arr[max_location] = arr[j]
+        arr[j] = max_num
+}
+    return arr 
+}
+
+console.log(sortHighestNums([5,8,2,9,3,10]))
+console.log(sortHighestNums([11,15,3,8,9,34]))
+
+
