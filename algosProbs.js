@@ -139,4 +139,41 @@ function sortHighestNums(arr) {
 console.log(sortHighestNums([5,8,2,9,3,10]))
 console.log(sortHighestNums([11,15,3,8,9,34]))
 
+//10.
+//Find max and sort largest with helper functions
 
+function findMaxWithHelper(arr, start) {
+    let maximum = arr[start];
+    let max_location = start
+
+    for (let i = start; i < arr.length; i++) {
+        if (arr[i] > maximum) {
+            maximum = arr[i]
+            max_location = i
+        }
+    }
+    return {max_number: maximum, max_index: max_location}
+}
+
+console.log(findMaxWithHelper([5,2,9,3,7], 3))
+
+
+function sortHighestNumsWithHelper(arr) {
+    // run as many times are there are items
+    for (let j = 0; j < arr.length -1; j++) {
+        
+        // Find the max number and max location starting from j
+        max = findMaxWithHelper(arr, j)
+        max_num = max['max_number']
+        max_location = max['max_index']
+
+        // swap the first and the last item in array
+        arr[max_location] = arr[j]
+        arr[j] = max_num
+}
+    return arr 
+}
+
+
+console.log(sortHighestNumsWithHelper([5,8,2,9,3,10]))
+console.log(sortHighestNumsWithHelper([13,24,5,9,0,3,2]))
